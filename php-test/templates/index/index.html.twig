@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+{#<style>#}
+{#    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }#}
+{#    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }#}
+{#</style>#}
+
+
+<div id="app">
+    <form class="form col-sm-10" ref="anyName">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input v-model="name" type="email" class="form-control" id="tname" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input v-model="message" type="text" class="form-control" id="tmessage" placeholder="Password">
+        </div>
+
+        <button  v-on:click="addComment" class="btn btn-primary">Adicionar</button>
+        <button v-on:click="removeComment" class="btn btn-danger">Remover</button>
+
+    </form>
+
+    <div class="col-sm-10">
+        <ul class="list-group" v-for="c in coments">
+            <li class="list-group-item">#{c.name} #{c.message} </li>
+        </ul>
+    </div>
+
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
